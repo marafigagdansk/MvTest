@@ -1,6 +1,7 @@
 from time import sleep
 import pyautogui
 
+
 def open_calculator():
     pyautogui.press("winleft")
     sleep(0.2)
@@ -8,6 +9,7 @@ def open_calculator():
     sleep(0.2)
     pyautogui.press("enter")
     sleep(0.2)
+
 
 def localizar_campo(path: str, confianca: float):
     try:
@@ -19,30 +21,19 @@ def localizar_campo(path: str, confianca: float):
         print(f"Erro ao localizar o campo: {e}")
         return None
 
+
 if __name__ == "__main__":
     img_button_1 = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao1.PNG"
     img_button_2 = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao2.PNG"
-    img_button_min = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_min.PNG"
     img_button_plus = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_plus.PNG"
     img_button_reso = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_reso.PNG"
     img_button_ce = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_ce.PNG"
     img_button_close = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_close.PNG"
 
-    pos_img_botao_min = localizar_campo(
-        path=img_button_min,
-        confianca=0.8
-    )
-    if pos_img_botao_min:
-        pyautogui.mouseUp(pos_img_botao_min)
-        sleep(0.2)
-        print(pyautogui.position())
-        sleep(0.2)
-        pyautogui.click(interval=0.5)
-    else:
-        print("Botão de minimizar não encontrado.")
 
     open_calculator()
-    sleep(0.3)
+    sleep(0.2)
+
 
     pos_img_botao_1 = localizar_campo(
         path=img_button_1,
@@ -56,8 +47,10 @@ if __name__ == "__main__":
         pyautogui.click(interval=0.5)
         sleep(0.2)
         pyautogui.click(interval=0.5)
+
     else:
         print("Botão 1 não encontrado.")
+
 
     pos_img_botao_plus = localizar_campo(
         path=img_button_plus,
@@ -72,6 +65,7 @@ if __name__ == "__main__":
     else:
         print("Botão plus não encontrado.")    
 
+
     pos_img_botao_2 = localizar_campo(
         path=img_button_2,
         confianca=0.8
@@ -84,6 +78,7 @@ if __name__ == "__main__":
         pyautogui.click(interval=0.5)
     else:
         print("Botão 2 não encontrado.")
+
 
     pos_img_botao_reso = localizar_campo(
         path=img_button_reso,
@@ -98,6 +93,7 @@ if __name__ == "__main__":
     else:
         print("Botão igual não encontrado.")
 
+
     pos_img_botao_ce = localizar_campo(
         path=img_button_ce,
         confianca=0.8
@@ -110,6 +106,7 @@ if __name__ == "__main__":
         pyautogui.click(interval=0.5)
     else:
         print("Botão CE não encontrado.")
+    
     
     pos_img_botao_close = localizar_campo(
         path=img_button_close,
