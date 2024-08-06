@@ -4,7 +4,7 @@ import pyautogui
 def open_calculator():
     pyautogui.press("winleft")
     sleep(0.3)
-    pyautogui.write("calculadora", interval=0.3)
+    pyautogui.write("calculadora", interval=0.1)
     sleep(0.3)
     pyautogui.press("enter")
     sleep(0.3)
@@ -116,10 +116,18 @@ if __name__ == "__main__":
         confianca=0.8
     )
     if pos_img_botao_close:
-        pyautogui.mouseUp(pos_img_botao_close)
-        sleep(0.3)
-        print(pyautogui.position())
+        pos_img_botao_close_x = pos_img_botao_close[0] + 2
+        pos_img_botao_close_y = pos_img_botao_close[1] - 19
+        pyautogui.moveTo(pos_img_botao_close_x, pos_img_botao_close_y)
+        pyautogui.mouseUp(pos_img_botao_close_x, pos_img_botao_close_y)
         sleep(0.3)
         pyautogui.click(interval=1)
     else:
-        print("Botão Fechar não encontrado.")
+        print("Botão Fechar não encontrado")
+
+
+            # função encontrar posição
+    # print(pos_img_botao_close[0], pos_img_botao_close[1])
+    # sleep(3)
+    # mousePosition = pyautogui.position()
+    # print(mousePosition)
