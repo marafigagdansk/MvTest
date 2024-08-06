@@ -29,6 +29,7 @@ if __name__ == "__main__":
     img_button_reso = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_reso.PNG"
     img_button_ce = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_ce.PNG"
     img_button_close = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_close.PNG"
+    img_testeErro = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\testeErro.PNG"
 
 
     open_calculator()
@@ -49,7 +50,7 @@ if __name__ == "__main__":
         pyautogui.click(interval=0.5)
 
     else:
-        print("Botão 1 não encontrado.")
+        pyautogui.alert('Botão 1 não encontrado.')
 
 
     pos_img_botao_plus = localizar_campo(
@@ -63,7 +64,7 @@ if __name__ == "__main__":
         sleep(0.2)
         pyautogui.click(interval=0.5)
     else:
-        print("Botão plus não encontrado.")    
+        pyautogui.alert("Botão plus não encontrado.")    
 
 
     pos_img_botao_2 = localizar_campo(
@@ -77,7 +78,7 @@ if __name__ == "__main__":
         sleep(0.2)
         pyautogui.click(interval=0.5)
     else:
-        print("Botão 2 não encontrado.")
+        pyautogui.alert("Botão 2 não encontrado.")
 
 
     pos_img_botao_reso = localizar_campo(
@@ -91,7 +92,7 @@ if __name__ == "__main__":
         sleep(0.2)
         pyautogui.click(interval=0.5)
     else:
-        print("Botão igual não encontrado.")
+        pyautogui.alert("Botão igual não encontrado.")
 
 
     pos_img_botao_ce = localizar_campo(
@@ -105,7 +106,7 @@ if __name__ == "__main__":
         sleep(0.2)
         pyautogui.click(interval=0.5)
     else:
-        print("Botão CE não encontrado.")
+        pyautogui.alert("Botão CE não encontrado.")
     
     
     pos_img_botao_close = localizar_campo(
@@ -120,7 +121,7 @@ if __name__ == "__main__":
         sleep(0.2)
         pyautogui.click(interval=0.5)
     else:
-        print("Botão Fechar não encontrado")
+        pyautogui.alert("Botão Fechar não encontrado")
 
 
             # função encontrar posição
