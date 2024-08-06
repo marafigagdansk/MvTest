@@ -25,6 +25,8 @@ if __name__ == "__main__":
     img_button_min = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_min.PNG"
     img_button_plus = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_plus.PNG"
     img_button_reso = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_reso.PNG"
+    img_button_ce = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_ce.PNG"
+    img_button_close = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_close.PNG"
 
     pos_img_botao_min = localizar_campo(
         path=img_button_min,
@@ -95,3 +97,29 @@ if __name__ == "__main__":
         pyautogui.click(interval=1)
     else:
         print("Botão igual não encontrado.")
+
+    pos_img_botao_ce = localizar_campo(
+        path=img_button_ce,
+        confianca=0.8
+    )
+    if pos_img_botao_ce:
+        pyautogui.mouseUp(pos_img_botao_ce)
+        sleep(0.3)
+        print(pyautogui.position())
+        sleep(0.3)
+        pyautogui.click(interval=1)
+    else:
+        print("Botão CE não encontrado.")
+    
+    pos_img_botao_close = localizar_campo(
+        path=img_button_close,
+        confianca=0.8
+    )
+    if pos_img_botao_close:
+        pyautogui.mouseUp(pos_img_botao_close)
+        sleep(0.3)
+        print(pyautogui.position())
+        sleep(0.3)
+        pyautogui.click(interval=1)
+    else:
+        print("Botão Fechar não encontrado.")
