@@ -1,5 +1,7 @@
 from time import sleep
 import pyautogui
+import pytesseract
+from PIL import Image
 
 
 def open_calculator():
@@ -20,7 +22,15 @@ def localizar_campo(path: str, confianca: float):
     except Exception as e:
         print(f"Erro ao localizar o campo: {e}")
         return None
+    
+def captura_resultado(regiao):
+    screenshot = pyautogui.screenshot(region=regiao)
+    caminho_screenshot = "captura.png"
+    screenshot.save(caminho_screenshot)
+    resultado = pytesseract.image_to_string(screenshot, config='--psm 7')
+    return resultado.strip()
 
+        
 
 if __name__ == "__main__":
     img_button_1 = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao1.PNG"
@@ -30,7 +40,7 @@ if __name__ == "__main__":
     img_button_ce = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_ce.PNG"
     img_button_close = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_close.PNG"
     img_testeErro = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\testeErro.PNG"
-
+    img_areaResul = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\area_resultado.PNG"
 
     open_calculator()
     sleep(0.2)
@@ -95,6 +105,25 @@ if __name__ == "__main__":
         pyautogui.alert("Botão igual não encontrado.")
 
 
+    print("tres segundos para tirar a print")
+    sleep(3)
+            #Print resultado
+    pos_area_resultado = localizar_campo(
+
+        path= img_areaResul,
+        confianca=0.8
+    )
+    if pos_area_resultado:
+        posicao_x =  int(pos_area_resultado[0]-360)
+        posicao_y =  int(pos_area_resultado[1]+ 65)
+
+        region_resultado = (posicao_x, posicao_y, 380, 80)
+        resultado = captura_resultado(region_resultado)
+        print(f"Resultado da calculadora: {resultado}")
+    else:
+        print("Área do resultado não encontrada.")
+
+
     pos_img_botao_ce = localizar_campo(
         path=img_button_ce,
         confianca=0.8
@@ -107,8 +136,8 @@ if __name__ == "__main__":
         pyautogui.click(interval=0.5)
     else:
         pyautogui.alert("Botão CE não encontrado.")
-    
-    
+
+
     pos_img_botao_close = localizar_campo(
         path=img_button_close,
         confianca=0.8
@@ -124,8 +153,8 @@ if __name__ == "__main__":
         pyautogui.alert("Botão Fechar não encontrado")
 
 
-            # função encontrar posição
-    # print(pos_img_botao_close[0], pos_img_botao_close[1])
-    # sleep(3)
-    # mousePosition = pyautogui.position()
-    # print(mousePosition)
+             #   função encontrar posição
+        # print(pos_area_resultado[0], pos_area_resultado[1])
+        # sleep(3)
+        # mousePosition = pyautogui.position()
+        # print(mousePosition)
