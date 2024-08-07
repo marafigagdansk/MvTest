@@ -1,7 +1,6 @@
 from time import sleep
 import pyautogui
 import pytesseract
-from PIL import Image
 
 
 def open_calculator():
@@ -35,15 +34,17 @@ def captura_resultado(regiao):
 if __name__ == "__main__":
     img_button_1 = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao1.PNG"
     img_button_2 = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao2.PNG"
+    img_button_9 = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao9.PNG"
     img_button_plus = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_plus.PNG"
     img_button_reso = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_reso.PNG"
     img_button_ce = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_ce.PNG"
     img_button_close = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_close.PNG"
     img_testeErro = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\testeErro.PNG"
     img_areaResul = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\area_resultado.PNG"
+    img_button_div = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_div.PNG"
 
     open_calculator()
-    sleep(0.2)
+    sleep(0.5)
 
 
     pos_img_botao_1 = localizar_campo(
@@ -103,6 +104,43 @@ if __name__ == "__main__":
         pyautogui.click(interval=0.5)
     else:
         pyautogui.alert("Botão igual não encontrado.")
+
+
+    pos_img_botao_div = localizar_campo(
+        path=img_button_div,
+        confianca=0.8
+    )
+    if pos_img_botao_div:
+        pyautogui.mouseUp(pos_img_botao_div)
+        sleep(0.2)
+        print(pyautogui.position())
+        sleep(0.2)
+        pyautogui.click(interval=0.5)
+        sleep(0.2)
+
+    else:
+        pyautogui.alert('Botão Divisão não encontrado.')
+
+
+    pos_img_botao_9 = localizar_campo(
+        path=img_button_9,
+        confianca=0.8
+    )
+    if pos_img_botao_9:
+        pyautogui.mouseUp(pos_img_botao_9)
+        sleep(0.2)
+        print(pyautogui.position())
+        sleep(0.2)
+        pyautogui.click(interval=0.5)
+    else:
+        pyautogui.alert("Botão 9 não encontrado.")
+
+
+    pyautogui.mouseUp(pos_img_botao_reso)
+    sleep(0.2)
+    print(pyautogui.position())
+    sleep(0.2)
+    pyautogui.click(interval=0.5)
 
 
     print("tres segundos para tirar a print")
