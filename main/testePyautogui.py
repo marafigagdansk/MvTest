@@ -22,13 +22,13 @@ def localizar_campo(path: str, confianca: float):
         print(f"Erro ao localizar o campo: {e}")
         return None
     
+
 def captura_resultado(regiao):
     screenshot = pyautogui.screenshot(region=regiao)
     caminho_screenshot = "captura.png"
     screenshot.save(caminho_screenshot)
     resultado = pytesseract.image_to_string(screenshot, config='--psm 7')
     return resultado.strip()
-
         
 
 if __name__ == "__main__":
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     img_button_div = "C:\\Users\\vinic\\OneDrive\\Documentos\\Projetos\\MvTest\\images\\botao_div.PNG"
 
     open_calculator()
-    sleep(0.5)
+    sleep(1)
 
 
     pos_img_botao_1 = localizar_campo(
@@ -144,10 +144,10 @@ if __name__ == "__main__":
 
 
     print("tres segundos para tirar a print")
-    sleep(3)
+    sleep(3)  
+
             #Print resultado
     pos_area_resultado = localizar_campo(
-
         path= img_areaResul,
         confianca=0.8
     )
